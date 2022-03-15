@@ -1,5 +1,5 @@
 <template>
     <div>
-        hello world 3
+        模块 3
     </div>
 </template>

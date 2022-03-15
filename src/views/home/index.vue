@@ -1,9 +1,7 @@
 <template>
     <div>
-
-
         <div class="body-box">
-          <!-- 第三行数据 -->
+          <!-- 第一层 -->
           <div class="content-box">
             <div>
               <dv-border-box-12>
@@ -30,7 +28,7 @@
             </div>
           </div>
 
-          <!-- 第四行数据 -->
+          <!-- 第二层 -->
           <div class="bototm-box">
             <dv-border-box-13>
               <bottomLeft />

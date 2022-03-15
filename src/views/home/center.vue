@@ -21,7 +21,10 @@
           <icon name="chart-pie" class="text-icon"></icon>
         </span>
         <span class="fs-xl text mx-2 mb-1 pl-3">年度负责人组件达标榜</span>
-        <dv-scroll-ranking-board class="dv-scr-rank-board mt-1" :config="ranking" />
+        <dv-scroll-ranking-board
+          class="dv-scr-rank-board mt-1"
+          :config="ranking"
+        />
       </div>
       <div class="percent">
         <div class="item bg-color-black">
@@ -215,6 +218,22 @@ export default {
   },
   components: {
     CenterChart
+  },
+  mounted() {
+    this.changeTiming()
+  },
+  methods: {
+    changeTiming() {
+      setInterval(() => {
+        this.changeNumber()
+      }, 3000)
+    },
+    changeNumber() {
+      this.titleItem.forEach((item, index) => {
+        item.number.number[0] += ++index
+        item.number = { ...item.number }
+      })
+    }
   }
 }
 </script>
