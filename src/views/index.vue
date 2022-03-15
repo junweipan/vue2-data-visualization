@@ -23,22 +23,30 @@
           </div>
           <dv-decoration-10 class="dv-dec-10-s" />
         </div>
-
         <!-- 第二行 -->
         <div class="d-flex jc-between px-2">
           <div class="d-flex aside-width">
             <div class="react-left ml-4 react-l-s">
               <span class="react-before"></span>
-              <span class="text">数据分析1</span>
+              <router-link to="/home"
+                ><span class="text">数据分析1</span></router-link
+              >
             </div>
+
             <div class="react-left ml-3">
-              <span class="text">数据分析2</span>
+              <router-link to="/module-2"
+                ><span class="text">数据分析2</span></router-link
+              >
             </div>
           </div>
+
           <div class="d-flex aside-width">
             <div class="react-right bg-color-blue mr-3">
-              <span class="text fw-b">vue-big-screen</span>
+              <router-link to="/module-3"
+                ><span class="text fw-b">数据分析3</span></router-link
+              >
             </div>
+
             <div class="react-right mr-4 react-l-s">
               <span class="react-after"></span>
               <span class="text"
@@ -47,63 +55,18 @@
             </div>
           </div>
         </div>
-
-        <div class="body-box">
-          <!-- 第三行数据 -->
-          <div class="content-box">
-            <div>
-              <dv-border-box-12>
-                <centerLeft1 />
-              </dv-border-box-12>
-            </div>
-            <div>
-              <dv-border-box-12>
-                <centerLeft2 />
-              </dv-border-box-12>
-            </div>
-            <!-- 中间 -->
-            <div>
-              <center />
-            </div>
-            <!-- 中间 -->
-            <div>
-              <centerRight2 />
-            </div>
-            <div>
-              <dv-border-box-13>
-                <centerRight1 />
-              </dv-border-box-13>
-            </div>
-          </div>
-
-          <!-- 第四行数据 -->
-          <div class="bototm-box">
-            <dv-border-box-13>
-              <bottomLeft />
-            </dv-border-box-13>
-            <dv-border-box-12>
-              <bottomRight />
-            </dv-border-box-12>
-          </div>
-        </div>
+        <router-view></router-view>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import drawMixin from "../utils/drawMixin";
+import drawMixin from '../utils/drawMixin'
 import { formatTime } from '../utils/index.js'
-import centerLeft1 from './centerLeft1'
-import centerLeft2 from './centerLeft2'
-import centerRight1 from './centerRight1'
-import centerRight2 from './centerRight2'
-import center from './center'
-import bottomLeft from './bottomLeft'
-import bottomRight from './bottomRight'
 
 export default {
-  mixins: [ drawMixin ],
+  mixins: [drawMixin],
   data() {
     return {
       timing: null,
@@ -114,20 +77,12 @@ export default {
       weekday: ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
     }
   },
-  components: {
-    centerLeft1,
-    centerLeft2,
-    centerRight1,
-    centerRight2,
-    center,
-    bottomLeft,
-    bottomRight
-  },
+  components: {},
   mounted() {
     this.timeFn()
     this.cancelLoading()
   },
-  beforeDestroy () {
+  beforeDestroy() {
     clearInterval(this.timing)
   },
   methods: {
@@ -148,5 +103,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../assets/scss/index.scss';
+@import '@/assets/scss/index.scss';
 </style>
